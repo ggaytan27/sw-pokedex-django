@@ -3,6 +3,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Models
+class CaughtManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status='caught')
+
 class Pokemon(models.Model):
     STATUS_CHOICES = [
         ('caught', 'Caught'),
@@ -25,3 +29,6 @@ class Pokemon(models.Model):
 
     def __str__(self):
         return self.name
+    
+    objects = models.Manager()
+    caught = CaughtManager()
