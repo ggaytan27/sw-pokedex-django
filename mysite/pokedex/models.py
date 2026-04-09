@@ -19,7 +19,7 @@ class Pokemon(models.Model):
     description = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='not_seen')
     created = models.DateTimeField(auto_now_add=True)
-    update = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
 
     # To order the pokemons by the date they were created
     class Meta:

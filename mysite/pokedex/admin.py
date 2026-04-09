@@ -7,7 +7,7 @@ from .models import Pokemon #Adding models to the admin page
 
 @admin.register(Pokemon) #Using the decorator to register the Pokemon model to the admin page
 class PokemonAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug', 'type', 'status', 'update' )
+    list_display = ('name', 'slug', 'type', 'status', 'updated' )
     list_filter = ('status', 'type')
     search_fields = ('name', 'type')
     prepopulated_fields = {'slug': ('name',)} #Automatically fill the slug field with the name field
